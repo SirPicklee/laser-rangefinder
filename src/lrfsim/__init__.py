@@ -1,5 +1,16 @@
 """lrfsim: physics-based laser rangefinder simulation."""
 
+from .atmosphere import (
+    KOSCHMIEDER,
+    attenuation_db_per_km,
+    extinction,
+    fade_probability,
+    kim_q,
+    lognormal_samples,
+    rytov_variance,
+    scintillation_index,
+    transmission,
+)
 from .beam import (
     Transmitter,
     beam_radius,
@@ -36,5 +47,14 @@ __all__ = [
     "mean_fraction",
     "pointing_fractions",
     "rayleigh_range",
+    "KOSCHMIEDER",
+    "attenuation_db_per_km",
+    "extinction",
+    "fade_probability",
+    "kim_q",
+    "lognormal_samples",
+    "rytov_variance",
+    "scintillation_index",
+    "transmission",
 ]
 __version__ = "0.1.0"
