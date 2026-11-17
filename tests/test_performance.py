@@ -63,5 +63,5 @@ def test_analytic_refuses_aiming_error():
 
 def test_range_at_pd():
     d = np.array([1.0, 2.0, 3.0, 4.0])
-    assert range_at_pd(d, np.array([1.0, 0.95, 0.85, 0.5]), 0.9) == 3.0
+    assert range_at_pd(d, np.array([1.0, 0.95, 0.85, 0.5]), 0.9) == pytest.approx(2.5)
     assert np.isnan(range_at_pd(d, np.ones(4), 0.9))

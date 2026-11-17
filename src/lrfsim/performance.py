@@ -93,7 +93,12 @@ def pd_monte_carlo(system: System, cond: Conditions, distance: float, n_trials: 
 
 
 def range_at_pd(distances, pd_values, level: float = 0.9) -> float:
-    """First distance at which Pd falls below the level (nan if never)."""
-    d, p = np.asarray(distances), np.asarray(pd_values)
+    """Distance at which Pd first falls below the level, linearly interpolated (nan if never)."""
+    d, p = np.asarray(distances, float), np.asarray(pd_values, float)
     below = np.nonzero(p < level)[0]
-    return float(d[below[0]]) if below.size else math.nan
+    if below.size == 0:
+        return math.nan
+    i = below[0]
+    if i == 0:
+        return float(d[0])
+    return float(np.interp(level, [p[i], p[i - 1]], [d[i], d[i - 1]]))

@@ -48,7 +48,7 @@ CONDITIONS = {
     "haze day, turbulence, hand-held": Conditions(5.0, 1e-14, 0.5e-3, True, NATO),
     "haze day, dark target, hand-held": Conditions(5.0, 1e-14, 0.5e-3, True, Target(2.3, 0.1)),
 }
-RANGES = {"Er:glass 1550 nm, 1 pulse": np.linspace(500, 20000, 40), "diode 905 nm, 256 pulses": np.linspace(100, 3000, 30)}
+RANGES = {"Er:glass 1550 nm, 1 pulse": np.linspace(500, 20000, 40), "diode 905 nm, 256 pulses": np.linspace(100, 5000, 50)}
 TRIALS = {"Er:glass 1550 nm, 1 pulse": 3000, "diode 905 nm, 256 pulses": 600}
 
 # ---------- 1) Validation ----------
@@ -69,7 +69,9 @@ for cname, cond in CONDITIONS.items():
         R = RANGES[sname]
         pd = np.array([pd_monte_carlo(sys_, cond, r, TRIALS[sname], rng) for r in R])
         curves[(sname, cname)] = (R, pd)
-        row += f"{range_at_pd(R, pd, 0.9) / 1e3:>25.2f} km"
+        km = range_at_pd(R, pd, 0.9) / 1e3
+        cell = f"> {R[-1] / 1e3:.1f} km" if np.isnan(km) else f"{km:.2f} km"
+        row += f"{cell:>28}"
     print(f"   {cname:<36}{row}")
 
 # ---------- 4) Detection map ----------
