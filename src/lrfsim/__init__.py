@@ -11,6 +11,16 @@ from .atmosphere import (
     scintillation_index,
     transmission,
 )
+from .detection import (
+    count_upward_crossings,
+    crossing_rate,
+    detection_probability,
+    detection_probability_fading,
+    echo_peak_current,
+    false_alarm_probability,
+    threshold_for_pfa,
+    zero_crossing_rate,
+)
 from .detector import (
     APD,
     INGAAS_APD,
@@ -21,6 +31,17 @@ from .detector import (
     optimum_gain,
     snr,
     solar_background,
+)
+from .eyesafety import (
+    OpticalAid,
+    aperture_exposure,
+    c4,
+    exposure_ratio,
+    exposure_ratios,
+    limiting_aperture,
+    max_class1_energy,
+    mpe_single,
+    nohd,
 )
 from .linkbudget import (
     H_PLANCK,
@@ -52,6 +73,32 @@ from .waveform import (
     noise_psd,
     noise_rms,
     simulate_current,
+)
+from .multipulse import (
+    accumulate,
+    binary_integration_pd,
+    find_echoes,
+    first_and_last,
+    pulses_for_snr,
+)
+from .performance import (
+    Conditions,
+    System,
+    background_power,
+    mean_snr,
+    pd_analytic,
+    pd_monte_carlo,
+    range_at_pd,
+    snr_per_joule,
+    threshold,
+)
+from .timing import (
+    cfd_time,
+    crlb_timing,
+    gaussian_template,
+    leading_edge_time,
+    leading_edge_walk,
+    matched_filter_time,
 )
 from .tof import (
     C0,
@@ -116,5 +163,42 @@ __all__ = [
     "noise_psd",
     "noise_rms",
     "simulate_current",
+    "count_upward_crossings",
+    "crossing_rate",
+    "detection_probability",
+    "detection_probability_fading",
+    "echo_peak_current",
+    "false_alarm_probability",
+    "threshold_for_pfa",
+    "zero_crossing_rate",
+    "cfd_time",
+    "crlb_timing",
+    "gaussian_template",
+    "leading_edge_time",
+    "leading_edge_walk",
+    "matched_filter_time",
+    "accumulate",
+    "binary_integration_pd",
+    "find_echoes",
+    "first_and_last",
+    "pulses_for_snr",
+    "Conditions",
+    "System",
+    "background_power",
+    "mean_snr",
+    "pd_analytic",
+    "pd_monte_carlo",
+    "range_at_pd",
+    "snr_per_joule",
+    "threshold",
+    "OpticalAid",
+    "aperture_exposure",
+    "c4",
+    "exposure_ratio",
+    "exposure_ratios",
+    "limiting_aperture",
+    "max_class1_energy",
+    "mpe_single",
+    "nohd",
 ]
 __version__ = "0.1.0"
