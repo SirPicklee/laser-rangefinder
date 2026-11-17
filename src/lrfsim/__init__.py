@@ -42,6 +42,17 @@ from .beam import (
     pointing_fractions,
     rayleigh_range,
 )
+from .waveform import (
+    Receiver,
+    digitize,
+    echo_power,
+    gaussian_filter_taps,
+    gaussian_pulse_power,
+    noise_equivalent_bandwidth,
+    noise_psd,
+    noise_rms,
+    simulate_current,
+)
 from .tof import (
     C0,
     N_AIR,
@@ -96,5 +107,14 @@ __all__ = [
     "optimum_gain",
     "snr",
     "solar_background",
+    "Receiver",
+    "digitize",
+    "echo_power",
+    "gaussian_filter_taps",
+    "gaussian_pulse_power",
+    "noise_equivalent_bandwidth",
+    "noise_psd",
+    "noise_rms",
+    "simulate_current",
 ]
 __version__ = "0.1.0"
