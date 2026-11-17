@@ -11,6 +11,17 @@ from .atmosphere import (
     scintillation_index,
     transmission,
 )
+from .detector import (
+    APD,
+    INGAAS_APD,
+    Q_E,
+    SI_APD,
+    bandwidth_for_pulse,
+    noise_terms,
+    optimum_gain,
+    snr,
+    solar_background,
+)
 from .linkbudget import (
     H_PLANCK,
     LRF,
@@ -76,5 +87,14 @@ __all__ = [
     "received_energy",
     "received_power",
     "total_factor",
+    "APD",
+    "INGAAS_APD",
+    "Q_E",
+    "SI_APD",
+    "bandwidth_for_pulse",
+    "noise_terms",
+    "optimum_gain",
+    "snr",
+    "solar_background",
 ]
 __version__ = "0.1.0"
